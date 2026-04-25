@@ -1,0 +1,2111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semester Project - JS Bank Mobile App</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0a0a0f;
+            color: white;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .background {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .gradient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.3;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .orb-1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, #00d9ff, transparent);
+            top: -200px;
+            left: -200px;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, #7b68ee, transparent);
+            bottom: -150px;
+            right: -150px;
+            animation-delay: 5s;
+        }
+
+        .orb-3 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #ffa500, transparent);
+            top: 50%;
+            right: 10%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            25% {
+                transform: translate(50px, 100px) scale(1.1);
+            }
+
+            50% {
+                transform: translate(-30px, 50px) scale(0.9);
+            }
+
+            75% {
+                transform: translate(70px, -50px) scale(1.05);
+            }
+        }
+
+        .presentation {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            z-index: 10;
+        }
+
+        /* Slide 1 - Hero */
+        .slide-1 .subtitle {
+            font-size: 12px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #00d9ff, #7b68ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+
+        .slide-1.active .subtitle {
+            animation: slideDown 1s ease-out 0.3s forwards;
+        }
+
+        .slide-1 h1 {
+            font-size: 110px;
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .slide-1 h1 .word {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(100px) rotateX(-90deg);
+            transform-origin: center bottom;
+        }
+
+        .slide-1.active h1 .word {
+            animation: flipIn 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        .slide-1.active h1 .word:nth-child(1) {
+            animation-delay: 0.5s;
+        }
+
+        .slide-1.active h1 .word:nth-child(2) {
+            animation-delay: 0.7s;
+        }
+
+        .slide-1.active h1 .word:nth-child(3) {
+            animation-delay: 0.9s;
+        }
+
+        .slide-1.active h1 .word:nth-child(4) {
+            animation-delay: 1.1s;
+        }
+
+        .slide-1 .highlight {
+            background: linear-gradient(135deg, #00d9ff, #0099ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 80px rgba(0, 217, 255, 0.5);
+            position: relative;
+        }
+
+        .slide-1 .tagline {
+            font-size: 18px;
+            font-weight: 300;
+            margin-top: 30px;
+            opacity: 0;
+            transform: translateY(30px);
+            text-align: center;
+            max-width: 700px;
+        }
+
+        .slide-1.active .tagline {
+            animation: slideUp 1s ease-out 1.3s forwards;
+        }
+
+        .slide-1 .members {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 15px;
+            opacity: 0;
+            align-items: center;
+        }
+
+        .slide-1.active .members {
+            animation: slideUp 1s ease-out 1.5s forwards;
+        }
+
+        .slide-1 .members .member {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(0, 217, 255, 0.45);
+            box-shadow: 0 0 25px rgba(0, 217, 255, 0.22);
+            border-radius: 16px;
+            padding: 12px 18px;
+            width: fit-content;
+            max-width: 560px;
+        }
+
+        .slide-1 .members .member strong {
+            color: #00d9ff;
+            font-weight: 700;
+        }
+
+        .slide-1 .presenter {
+            font-size: 13px;
+            color: #7b68ee;
+            letter-spacing: 2px;
+            margin-top: 20px;
+            opacity: 0;
+        }
+
+        .slide-1.active .presenter {
+            animation: slideUp 1s ease-out 1.7s forwards;
+        }
+
+        /* Slide 2-5 - Cards Layout */
+        .comparison-slide {
+            justify-content: center;
+            padding-top: 0;
+        }
+
+        .comparison-slide .section-title {
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #7b68ee, #00d9ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 25px;
+            opacity: 0;
+        }
+
+        .comparison-slide.active .section-title {
+            animation: fadeIn 0.8s ease-out 0.2s forwards;
+        }
+
+        .comparison-slide h2 {
+            font-size: 80px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateX(-100px);
+        }
+
+        .comparison-slide.active h2 {
+            animation: slideRight 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s forwards;
+        }
+
+        .comparison-slide h2 {
+            color: #00d9ff;
+        }
+
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            width: 100%;
+            max-width: 1600px;
+            perspective: 1000px;
+        }
+
+        .cards-container>.card {
+            flex: 0 1 calc(33.333% - 27px);
+            min-width: 320px;
+        }
+
+        .comparison-slide .slide-columns {
+            position: relative;
+            display: flex;
+            gap: 100px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 1600px;
+            margin-top: 24px;
+            margin-bottom: 10px;
+        }
+
+        .comparison-slide .slide-columns::before {
+            content: '';
+            position: absolute;
+            top: 0px;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            border-left: 5px dashed rgb(0 217 255);
+            opacity: 0.8;
+        }
+
+        .comparison-slide .text-column,
+        .comparison-slide .image-column {
+            flex: 1 1 380px;
+            min-width: 320px;
+        }
+
+        .comparison-slide .text-column .card,
+        .comparison-slide .image-column .card {
+            margin-bottom: 14px;
+        }
+
+        .comparison-slide .text-column .card-label {
+            color: #00d9ff;
+            font-size: 20px;
+            letter-spacing: 1.5px;
+            margin-bottom: 14px;
+        }
+
+        .comparison-slide .text-column .card:nth-child(1) .card-label {
+            color: #00d9ff;
+        }
+
+        .comparison-slide .text-column .card:nth-child(2) .card-label {
+            color: #7b68ee;
+        }
+
+        .comparison-slide .text-column .card:nth-child(3) .card-label {
+            color: #ffa500;
+        }
+
+        .comparison-slide .text-column .card:nth-child(4) .card-label {
+            color: #00ff80;
+        }
+
+        .comparison-slide .text-column .text-column-heading {
+            font-size: 24px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            color: #ffffff;
+            letter-spacing: 2px;
+        }
+
+        .comparison-slide .image-column {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            align-items: start;
+        }
+
+        .comparison-slide .image-column-top {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-end;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            margin-bottom: 14px;
+        }
+
+        .comparison-slide .image-column-heading {
+            font-size: 30px;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: #00d9ff;
+            margin: 0;
+            line-height: 1.05;
+        }
+
+        .comparison-slide .image-column-main {
+            grid-column: 1 / -1;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .comparison-slide .image-column-main>.card {
+            flex: 1 1 0;
+            min-width: 0;
+        }
+
+        .comparison-slide .image-column .card {
+            height: auto;
+            border: none !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            backdrop-filter: none !important;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .comparison-slide .image-column .card:hover {
+            border-color: transparent !important;
+            box-shadow: none !important;
+        }
+
+        .comparison-slide .image-column .card img {
+            border-radius: 28px;
+            border: 3px solid #00d9ff;
+            box-shadow: 0 0 35px rgba(0, 217, 255, 0.18);
+            display: block;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .comparison-slide .image-column .card:nth-child(1) img {
+            border-color: #00d9ff;
+        }
+
+        .comparison-slide .image-column .card:nth-child(2) img {
+            border-color: #7b68ee;
+        }
+
+        .comparison-slide .image-column .card:nth-child(3) img {
+            border-color: #ffa500;
+        }
+
+        .comparison-slide .image-column .card:nth-child(4) img {
+            border-color: #00ff80;
+        }
+
+        .comparison-slide .image-column .card .card-label {
+            padding: 20px;
+            margin-bottom: 0;
+            text-align: center;
+        }
+
+        .card.neon {
+            border-top-color: #00d9ff;
+        }
+
+        .card.neon:hover {
+            --card-color: #00d9ff;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 4px solid;
+            border-radius: 16px;
+            padding: 45px 35px;
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px) rotateX(10deg);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .comparison-slide.active .card {
+            animation: cardIn 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        .comparison-slide.active .card:nth-child(1) {
+            animation-delay: 0.6s;
+        }
+
+        .comparison-slide.active .card:nth-child(2) {
+            animation-delay: 0.8s;
+        }
+
+        .comparison-slide.active .card:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        .card:nth-child(1) {
+            border-top-color: #00d9ff;
+        }
+
+        .card:nth-child(2) {
+            border-top-color: #7b68ee;
+        }
+
+        .card:nth-child(3) {
+            border-top-color: #ffa500;
+        }
+
+        .card:hover {
+            transform: translateY(-20px) rotateX(0deg) scale(1.05);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5),
+                0 0 80px var(--card-color);
+        }
+
+        .card:nth-child(1):hover {
+            --card-color: #00d9ff;
+        }
+
+        .card:nth-child(2):hover {
+            --card-color: #7b68ee;
+        }
+
+        .card:nth-child(3):hover {
+            --card-color: #ffa500;
+        }
+
+        .card-label {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            opacity: 0.7;
+            font-weight: 600;
+        }
+
+        .card h3 {
+            font-size: 40px;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            font-weight: 900;
+            line-height: 1.1;
+        }
+
+        .card:nth-child(1) h3 {
+            background: linear-gradient(135deg, #00d9ff, #0a8ba2b5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card:nth-child(2) h3 {
+            background: linear-gradient(135deg, #7b68ee, #3e21e3c2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card:nth-child(3) h3 {
+            background: linear-gradient(135deg, #ffa500, #ff6b00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card p {
+            font-size: 18px;
+            line-height: 1.9;
+            opacity: 0.9;
+            font-weight: 300;
+            color: #ddd;
+        }
+
+        .card em {
+            font-style: italic;
+            opacity: 0.6;
+            color: #999;
+        }
+
+        .card strong {
+            font-weight: 700;
+            color: #ffa500;
+        }
+
+        /* List-style slides */
+        .list-slide h2 {
+            font-size: 80px;
+            font-weight: 900;
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateX(-100px);
+        }
+
+        .list-slide.active h2 {
+            animation: slideRight 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s forwards;
+        }
+
+        .list-content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+            max-width: 1200px;
+            width: 100%;
+            opacity: 0;
+            animation: slideUp 1s ease-out 0.5s forwards;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 35px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-left: 5px solid #00d9ff;
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .list-item:nth-child(2) {
+            border-left-color: #7b68ee;
+        }
+
+        .list-item:nth-child(3) {
+            border-left-color: #ffa500;
+        }
+
+        .list-item:nth-child(4) {
+            border-left-color: #00d9ff;
+        }
+
+        .list-item:nth-child(5) {
+            border-left-color: #7b68ee;
+        }
+
+        .list-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-8px) translateX(5px);
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .list-item-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #fff;
+            letter-spacing: 0.5px;
+        }
+
+        .list-item-text {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #bbb;
+            font-weight: 300;
+        }
+
+        .list-item-text strong {
+            color: #ffa500;
+            font-weight: 600;
+        }
+
+        .list-item-text em {
+            color: #00d9ff;
+            font-style: italic;
+        }
+
+        .slide-4 .image-column img {
+            border-radius: 35px !important;
+        }
+
+        /* Slide 5 - Final */
+        .slide-5 .section-title {
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #7b68ee, #ffa500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 40px;
+            opacity: 0;
+        }
+
+        .slide-5.active .section-title {
+            animation: fadeIn 0.8s ease-out 0.2s forwards;
+        }
+
+        .slide-5 h1 {
+            font-size: 160px;
+            font-weight: 900;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #ffa500, #ff6b00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 50px;
+            opacity: 0;
+            transform: scale(0.5) rotate(-10deg);
+        }
+
+        .slide-5.active h1 {
+            animation: zoomRotate 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s forwards;
+        }
+
+        .features {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .feature-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid;
+            color: white;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .slide-5.active .feature-btn {
+            animation: slideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        .slide-5.active .feature-btn:nth-child(1) {
+            animation-delay: 0.8s;
+            border-color: #00d9ff;
+        }
+
+        .slide-5.active .feature-btn:nth-child(2) {
+            animation-delay: 1s;
+            border-color: #7b68ee;
+        }
+
+        .slide-5.active .feature-btn:nth-child(3) {
+            animation-delay: 1.2s;
+            border-color: #ffa500;
+        }
+
+        .feature-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .slide-5 .tagline {
+            font-size: 16px;
+            font-weight: 300;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .slide-5.active .tagline {
+            animation: slideUp 1s ease-out 1.5s forwards;
+        }
+
+        .slide-5 .tagline strong {
+            font-weight: 700;
+            background: linear-gradient(135deg, #00d9ff, #ffa500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Slide 6 - Thank You */
+        .slide-6 {
+            background: radial-gradient(circle at 30% 60%, rgba(0, 217, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 70% 40%, rgba(123, 104, 238, 0.05) 0%, transparent 50%);
+            justify-content: center;
+        }
+
+        .slide-6 .thank-you-container {
+            text-align: center;
+            z-index: 2;
+        }
+
+        .slide-6 h1 {
+            font-size: 160px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #00d9ff, #7b68ee, #ffa500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0;
+            transform: scale(0.5) translateY(-100px);
+        }
+
+        .slide-6.active h1 {
+            animation: zoomRotate 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s forwards;
+        }
+
+        .slide-6 .divider {
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(90deg, #00d9ff, #7b68ee, #ffa500);
+            margin: 30px auto;
+            border-radius: 2px;
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        .slide-6.active .divider {
+            animation: slideRight 1s ease-out 0.6s forwards;
+            transform-origin: center;
+        }
+
+        .slide-6 .questions-title {
+            font-size: 28px;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            color: #888;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .slide-6.active .questions-title {
+            animation: slideUp 1s ease-out 0.8s forwards;
+        }
+
+        /* Navigation */
+        .nav-controls {
+            position: fixed;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px 25px;
+            border-radius: 50px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-btn {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            border: none;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+        }
+
+        .nav-btn.active {
+            background: white;
+            width: 50px;
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        .arrow-nav {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 24px;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            z-index: 100;
+            border-radius: 50%;
+            backdrop-filter: blur(20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .arrow-nav:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .arrow-nav.prev {
+            left: 40px;
+        }
+
+        .arrow-nav.next {
+            right: 40px;
+        }
+
+        .progress-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00d9ff, #7b68ee, #ffa500);
+            transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            z-index: 100;
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
+        }
+
+        /* Animations */
+        @keyframes slideDown {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes flipIn {
+            to {
+                opacity: 1;
+                transform: translateY(0) rotateX(0deg);
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes cardIn {
+            to {
+                opacity: 1;
+                transform: translateY(0) rotateX(0deg);
+            }
+        }
+
+        @keyframes zoomRotate {
+            to {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        @media (max-width: 1400px) {
+            .slide-1 h1 {
+                font-size: 100px;
+            }
+
+            .comparison-slide h2 {
+                font-size: 60px;
+            }
+
+            .slide-5 h1 {
+                font-size: 130px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .slide-1 h1 {
+                font-size: 70px;
+            }
+
+            .comparison-slide h2 {
+                font-size: 50px;
+            }
+
+            .slide-5 h1 {
+                font-size: 90px;
+            }
+
+            .cards-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .features {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 40px 20px;
+            }
+
+            .slide-1 h1 {
+                font-size: 50px;
+            }
+
+            .comparison-slide h2 {
+                font-size: 40px;
+            }
+
+            .slide-5 h1 {
+                font-size: 70px;
+            }
+
+            .slide-6 h1 {
+                font-size: 90px;
+            }
+
+            .card h3 {
+                font-size: 28px;
+            }
+
+            .arrow-nav {
+                display: none;
+            }
+
+            .slide-6 .questions-title {
+                font-size: 18px;
+                letter-spacing: 6px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <style>
+        .slide-counter {
+            position: fixed;
+            top: 25px;
+            right: 35px;
+            background: rgba(0, 217, 255, 0.05);
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            border-radius: 30px;
+            padding: 8px 20px;
+            font-size: 16px;
+            color: #00d9ff;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            box-shadow: 0 0 15px rgba(0, 217, 255, 0.2);
+            z-index: 9999;
+        }
+
+        .slide-counter span.current-slide {
+            color: #fff;
+        }
+    </style>
+    <div class="slide-counter">
+        <span class="current-slide">1</span> / <span class="total-slides">24</span>
+    </div>
+    <div class="background">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <div class="presentation">
+        <!-- Slide 1 -->
+        <div class="slide slide-1 active">
+            <div class="subtitle">SEMESTER PROJECT</div>
+            <h1>
+                <span class="word">JS BANK</span><br>
+                <span class="word highlight">MOBILE APP.</span><br>
+
+            </h1>
+            <div class="tagline">GUI-Based Application Development & Security Implementation</div>
+            <div class="members">
+                <div class="member"><strong>M. Abdullah (561)</strong></div>
+                <div class="member"><strong>Rana Zain Wasim (332)</strong></div>
+                <div class="member"><strong>Hafiz Ahmad Rehan (687)</strong></div>
+                <div class="member"><strong>Zain Imran (306)</strong></div>
+
+            </div>
+            <div style="margin-top: 10px;">Presented to: <strong style="color: #7b68ee;">Rashid Bhatti</strong></div>
+        </div>
+
+        <!-- Presenter Intro Slide -->
+        <div class="slide slide-intro comparison-slide"
+            style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+            <div class="section-title" style="margin-bottom: 15px; font-size: 16px; letter-spacing: 8px;">PRESENTATION
+                START</div>
+            <h2 style="font-size: 85px; text-shadow: 0 0 40px rgba(0, 217, 255, 0.4); margin-bottom: 10px;">Rana Zain
+                Wasim</h2>
+            <div style="font-size: 22px; color: #7b68ee; font-weight: 700; letter-spacing: 6px; margin-bottom: 60px;">
+                ROLL NO: 332</div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide slide-2 comparison-slide">
+            <div class="section-title">APP ONBOARDING FLOW</div>
+            <h2>INTRODUCTORY SCREENS</h2>
+            <div class="slide-columns">
+                <div class="text-column">
+                    <div class="card neon">
+                        <div class="card-label">Welcome Screen (Onboarding 1)</div>
+                        <p>Purpose: Introduces the core objective of managing finances.</p>
+                        <p><strong>Action:</strong> Tapping "Get Started" initiates the app tutorial.</p>
+                    </div>
+                    <div class="card neon">
+                        <div class="card-label">Feature Introduction: Goal Setting (Onboarding 2)</div>
+                        <p>Purpose: Educates users on setting financial goals for tailored recommendations.</p>
+                        <p><strong>Navigation:</strong> Tap "Next" to proceed, or "Skip" to bypass the tutorial and
+                            enter the app directly.</p>
+                    </div>
+                    <div class="card neon">
+                        <div class="card-label">Final Call to Action (Onboarding 3)</div>
+                        <p>Purpose: Highlights progress tracking and concludes the tutorial phase.</p>
+                        <p><strong>User Actions:</strong> Returning users tap the green "Login" button; new users tap
+                            "Create account" at top right.</p>
+                    </div>
+                </div>
+                <div class="image-column">
+                    <div class="image-column-main">
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_1.jpg" alt="Onboarding Screen 1 with Get Started button"
+                                style="width: 100%; padding: 0;">
+                            <div class="card-label">Onboarding Screen 1</div>
+                        </div>
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_2.jpg" alt="Onboarding Screen 2 for Goal-setting"
+                                style="width: 100%; padding: 0;">
+                            <div class="card-label">Onboarding Screen 2</div>
+                        </div>
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_3.jpg" alt="Onboarding Screen 3 with Progress tracker"
+                                style="width: 100%; padding: 0;">
+                            <div class="card-label">Onboarding Screen 3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide slide-3 comparison-slide">
+            <div class="section-title">AUTHENTICATION</div>
+            <h2>TRANSITION TO SECURITY</h2>
+            <div class="cards-container">
+                <div class="card neon">
+                    <div class="card-label">PRE-LOGIN</div>
+                    <h3 style="color: #ffffff;">PRE-LOGIN<br>STATE</h3>
+                    <p>The initial onboarding tutorial operates in a strictly unauthenticated state, ensuring no
+                        sensitive user data is fetched or stored prematurely.</p>
+                </div>
+                <div class="card neon">
+                    <div class="card-label">GATEWAY</div>
+                    <h3 style="color: #ffffff;">SECURE ZONE<br>GATEWAY</h3>
+                    <p>Tapping "Login" or "Create account" strictly transitions the user from static public screens to
+                        the application's secure authorization flow.</p>
+                </div>
+                <div class="card neon">
+                    <div class="card-label">IMPLEMENTATION</div>
+                    <h3>AUTH<br>IMPLEMENTATION</h3>
+                    <p>For this academic demonstration, the initial login authentication is handled via a direct
+                        <strong>string-matching mechanism</strong>. An if-else logic structure actively verifies the
+                        input credentials (email and password) against predefined static values before granting
+                        dashboard access.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Slide 4 -->
+        <div class="slide slide-4 comparison-slide">
+            <div class="section-title">GUI ANALYSIS</div>
+            <h2>REGISTRATION & VERIFICATION</h2>
+            <div class="slide-columns">
+                <div class="text-column">
+                    <div class="card neon">
+                        <div class="card-label">Left Screen: Create Account</div>
+                        <ul
+                            style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 15px; text-transform: none; font-weight: normal; letter-spacing: 0; line-height: 1.5;">
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Smart Error Handling:</strong> The ID field uses
+                                    real-time validation, showing a red 'X' for incorrect formats alongside intelligent
+                                    auto-suggestions (e.g., "Do you mean: 34**-******-5").</div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Real-time Verification:</strong> The phone number
+                                    field displays a green checkmark to confirm the correct syntax instantly.</div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Security UI:</strong> Password field includes a
+                                    "Hide/Show" toggle for privacy control.</div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Action & Compliance:</strong> Includes a mandatory T&C
+                                    checkbox and a prominent "Create" Call-to-Action (CTA) button.</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card neon">
+                        <div class="card-label">Right Screen: Verify Backend</div>
+                        <ul
+                            style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 15px; text-transform: none; font-weight: normal; letter-spacing: 0; line-height: 1.5;">
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Visual Progress Indicator:</strong> Features a
+                                    prominent circular timer (e.g., 01:30:30) with a dynamic green progress ring.</div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">System Feedback:</strong> Clear informational text
+                                    guides the user, explaining that backend verification is in progress.</div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Seamless Transition:</strong> The primary green
+                                    "Login" button remains on standby, ready to activate once server-side verification
+                                    is complete.</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="image-column">
+                    <div class="image-column-main">
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_4.jpg" alt="Screen 4" style="width: 100%; padding: 0;">
+                            <div class="card-label">Create Account</div>
+                        </div>
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_5.jpg" alt="Screen 5" style="width: 100%; padding: 0;">
+                            <div class="card-label">Verify Backend</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="slide slide-5 comparison-slide">
+            <div class="section-title">GUI ANALYSIS</div>
+            <h2>SECURITY & BACKEND PROCESSING</h2>
+            <div class="cards-container">
+                <div class="card neon">
+                    <div class="card-label">SECURITY LAYER 1</div>
+                    <h3 style="color: #ffffff;">DATA MASKING<br>(PII PROTECTION)</h3>
+                    <p>Sensitive fields use masking (e.g., 34***-*******-5) to strictly protect the user’s Personally
+                        Identifiable Information (PII) from screen exposure.</p>
+                </div>
+                <div class="card neon">
+                    <div class="card-label">SECURITY LAYER 2</div>
+                    <h3 style="color: #ffffff;">REAL-TIME<br>INPUT VALIDATION</h3>
+                    <p>Live API checks trigger immediate visual feedback (Red 'X' / Green Tick) to ensure data integrity
+                        and block malformed inputs before server submission.</p>
+                </div>
+                <div class="card neon">
+                    <div class="card-label">SECURITY LAYER 3</div>
+                    <h3>ANTI-SHOULDER<br>SURFING</h3>
+                    <p>A built-in "Hide" toggle for passwords provides baseline physical security against visual
+                        eavesdropping.</p>
+                </div>
+                <div class="card neon">
+                    <div class="card-label">SECURITY LAYER 4</div>
+                    <h3 style="color: #ffffff;">BACKGROUND<br>KYC PROCESSING</h3>
+                    <p>The verification timer represents asynchronous backend processing, where the app cross-matches
+                        data and completes Know Your Customer (KYC) protocols via secure APIs.</p>
+                </div>
+                <div class="card neon">
+                    <div class="card-label">SECURITY LAYER 5</div>
+                    <h3 style="color: #ffffff;">SESSION TIMEOUT<br>MANAGEMENT</h3>
+                    <p>The screen timer (e.g., 01:30:30) acts as a strict security timeout. If the process hangs or the
+                        device is abandoned, the session automatically expires to prevent unauthorized access.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6 -->
+        <div class="slide slide-6 comparison-slide">
+            <div class="section-title">GUI ANALYSIS</div>
+            <h2>LOGIN & RECOVERY FLOWS</h2>
+            <div class="slide-columns">
+                <div class="text-column">
+                    <div class="card neon">
+                        <div class="card-label">1. Standard Login</div>
+                        <ul
+                            style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 15px; text-transform: none; font-weight: normal; letter-spacing: 0; line-height: 1.5;">
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Dual Access:</strong> Email/Password inputs +
+                                    "Fingerprint" option.</div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Live Feedback:</strong> Instant validation (green
+                                    checkmark) for formatting.</div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Convenience:</strong> "Auto login" checkbox & quick
+                                    "Forgot password" link.</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card neon">
+                        <div class="card-label">2. Biometric Prompt</div>
+                        <ul
+                            style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 15px; text-transform: none; font-weight: normal; letter-spacing: 0; line-height: 1.5;">
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Focus UI:</strong> Dimmed background highlights the
+                                    popup modal.</div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Quick Entry:</strong> Prompts hardware fingerprint
+                                    scan.</div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Fail-safes:</strong> Includes "Using PIN" alternative
+                                    and "Cancel" button.</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card neon">
+                        <div class="card-label">3. Account Recovery</div>
+                        <ul
+                            style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 15px; text-transform: none; font-weight: normal; letter-spacing: 0; line-height: 1.5;">
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Identity Check:</strong> Demands CNIC & Phone Number
+                                    before any reset.</div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Secure Flow:</strong> "Send OTP" enforces Multi-Factor
+                                    Authentication (MFA).</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="image-column">
+                    <div class="image-column-main">
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_6.jpg" alt="Screen 7" style="width: 100%; padding: 0;">
+                            <div class="card-label">Standard Login</div>
+                        </div>
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_7.jpg" alt="Screen 8" style="width: 100%; padding: 0;">
+                            <div class="card-label">Biometric Prompt</div>
+                        </div>
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_8.jpg" alt="Screen 9" style="width: 100%; padding: 0;">
+                            <div class="card-label">Account Recovery</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7 -->
+        <div class="slide slide-7 comparison-slide">
+            <div class="section-title">CYBERSECURITY</div>
+            <h2>CYBERSECURITY & BACKEND ARCHITECTURE</h2>
+            <div class="cards-container">
+                <div class="card neon">
+                    <div class="card-label">SECURITY LAYER 1</div>
+                    <h3 style="color: #ffffff;">HARDWARE-LEVEL<br>BIOMETRICS</h3>
+                    <p>Fingerprint data is never sent to the server. Authentication is handled locally via the device's
+                        secure enclave (e.g., TrustZone), transmitting only an encrypted cryptographic token for access.
+                    </p>
+                </div>
+                <div class="card neon">
+                    <div class="card-label">SECURITY LAYER 2</div>
+                    <h3 style="color: #ffffff;">SECURE FALLBACK<br>(MFA)</h3>
+                    <p>The "Using PIN" option acts as a critical secondary access method, preventing user lockouts while
+                        maintaining Multi-Factor Authentication principles.</p>
+                </div>
+                <div class="card neon">
+                    <div class="card-label">SECURITY LAYER 3</div>
+                    <h3>TOKEN-BASED<br>SESSIONS</h3>
+                    <p>The "Auto-login" feature does not save passwords. Instead, it securely stores an encrypted 'Auth
+                        Token' issued by the server to maintain safe, persistent access.</p>
+                </div>
+                <div class="card neon">
+                    <div class="card-label">SECURITY LAYER 4</div>
+                    <h3 style="color: #ffffff;">ROBUST ACCOUNT<br>RECOVERY</h3>
+                    <p>Prevents account takeovers using Knowledge-Based Authentication (requiring CNIC & Phone)
+                        alongside strict Data Masking (***) to thwart shoulder surfing.</p>
+                </div>
+                <div class="card neon">
+                    <div class="card-label">SECURITY LAYER 5</div>
+                    <h3 style="color: #ffffff;">OUT-OF-BAND<br>AUTHENTICATION</h3>
+                    <p>The "Send OTP" function acts as a physical security barrier, verifying that the user is in actual
+                        possession of the registered mobile device.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8 -->
+        <div class="slide slide-8 comparison-slide">
+            <div class="section-title">GUI ANALYSIS</div>
+            <h2>PASSWORD RESET FLOW</h2>
+            <div class="slide-columns">
+                <div class="text-column">
+                    <div class="card neon">
+                        <div class="card-label">1. OTP Verification</div>
+                        <ul
+                            style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 15px; text-transform: none; font-weight: normal; letter-spacing: 0; line-height: 1.5;">
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Intuitive Design:</strong> Features 6 distinct input
+                                    boxes for error-free code entry.</div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">User Support:</strong> Displays the masked target
+                                    number and a quick "Resend Code" link.</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card neon">
+                        <div class="card-label">2. Change Password</div>
+                        <ul
+                            style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 15px; text-transform: none; font-weight: normal; letter-spacing: 0; line-height: 1.5;">
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Standardization:</strong> Dual input fields for 'New'
+                                    and 'Confirm' password.</div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Privacy UI:</strong> Keystrokes are automatically
+                                    masked (****) to prevent visual exposure.</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card neon">
+                        <div class="card-label">3. Success Confirmation</div>
+                        <ul
+                            style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 15px; text-transform: none; font-weight: normal; letter-spacing: 0; line-height: 1.5;">
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Visual Feedback:</strong> Transitions to a full-screen
+                                    layout with engaging 3D graphics.</div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Clear Status:</strong> Displays an unambiguous
+                                    "Success" message.</div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Seamless Routing:</strong> The final "Login" button
+                                    smoothly loops the user back to the starting point.</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="image-column">
+                    <div class="image-column-main">
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_9.jpg" alt="Screen 10" style="width: 100%; padding: 0;">
+                            <div class="card-label">OTP Verification</div>
+                        </div>
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_10.jpg" alt="Screen 11" style="width: 100%; padding: 0;">
+                            <div class="card-label">Change Password</div>
+                        </div>
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_11.jpg" alt="Screen 12" style="width: 100%; padding: 0;">
+                            <div class="card-label">Success Confirmation</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9 -->
+        <div class="slide slide-9 comparison-slide">
+            <div class="section-title">CYBERSECURITY</div>
+            <h2>CYBERSECURITY & BACKEND PROCESSING</h2>
+            <div class="cards-container">
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 1</div>
+                    <h3 style="color: #ffffff;">MULTI-FACTOR<br>AUTHENTICATION</h3>
+                    <p>Enforces physical device verification to block remote, unauthorized password reset attempts.</p>
+                </div>
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 2</div>
+                    <h3 style="color: #ffffff;">RATE LIMITING &<br>TOKEN EXPIRY</h3>
+                    <p>The "Resend Code" function uses backend rate limiting to prevent SMS bombing, while OTPs act as
+                        time-bound tokens to thwart brute-force attacks.</p>
+                </div>
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 3</div>
+                    <h3>CRYPTOGRAPHIC<br>HASHING</h3>
+                    <p>Passwords are never stored in plaintext. The backend utilizes industry-standard hashing
+                        algorithms (e.g., bcrypt/SHA-256) to secure credentials against database breaches.</p>
+                </div>
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 4</div>
+                    <h3 style="color: #ffffff;">GLOBAL SESSION<br>REVOCATION</h3>
+                    <p>Upon a successful password reset, the backend immediately invalidates the old password and
+                        terminates all prior active sessions across all devices to prevent compromised access.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10 -->
+        <div class="slide slide-10 comparison-slide">
+            <div class="section-title">GUI ANALYSIS</div>
+            <h2>MAIN DASHBOARD</h2>
+            <div class="slide-columns">
+                <div class="text-column"
+                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-content: center;">
+                    <div class="card neon" style="padding: 20px 25px; min-width: 0;">
+                        <div class="card-label" style="font-size: 15px; margin-bottom: 8px;">1. Header & Alerts</div>
+                        <p style="font-size: 14px; margin: 0; line-height: 1.4;">Personalized greeting and active
+                            notification badge for immediate attention to critical updates.</p>
+                    </div>
+                    <div class="card neon" style="padding: 20px 25px; min-width: 0;">
+                        <div class="card-label" style="font-size: 15px; margin-bottom: 8px;">2. Virtual Card Display
+                        </div>
+                        <p style="font-size: 14px; margin: 0; line-height: 1.4;">Modern digital card highlighting total
+                            balance with realistic UI elements (EMV chip/Contactless).</p>
+                    </div>
+                    <div class="card neon" style="padding: 20px 25px; min-width: 0;">
+                        <div class="card-label" style="font-size: 15px; margin-bottom: 8px;">3. Quick Action Buttons
+                        </div>
+                        <p style="font-size: 14px; margin: 0; line-height: 1.4;">Core banking functions (Transfer, Pay,
+                            Top Up, Withdraw) placed front-and-center to minimize clicks.</p>
+                    </div>
+                    <div class="card neon" style="padding: 20px 25px; min-width: 0;">
+                        <div class="card-label" style="font-size: 15px; margin-bottom: 8px;">4. Recent Transactions
+                        </div>
+                        <p style="font-size: 14px; margin: 0; line-height: 1.4;">Quick-glance list using brand icons and
+                            color-coded amounts (red for deductions) for readability.</p>
+                    </div>
+                    <div class="card neon" style="padding: 20px 25px; min-width: 0; grid-column: span 2;">
+                        <div class="card-label" style="font-size: 15px; margin-bottom: 8px;">5. Bottom Navigation & FAB
+                        </div>
+                        <p style="font-size: 14px; margin: 0; line-height: 1.4;">Standard 5-tab layout anchored by a
+                            prominent central Floating Action Button (FAB) for QR payments.</p>
+                    </div>
+                </div>
+                <div class="image-column">
+                    <div class="image-column-main" style="justify-content: center;">
+                        <div class="card neon" style="max-width: 350px; width: 100%;">
+                            <img src="./Images/Bank_App_UI_12.jpg" alt="Screen 13" style="width: 100%; padding: 0;">
+                            <div class="card-label">Main Dashboard</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11 -->
+        <div class="slide slide-11 comparison-slide">
+            <div class="section-title">CYBERSECURITY</div>
+            <h2>CYBERSECURITY & BACKEND ARCHITECTURE</h2>
+            <div class="cards-container">
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 1</div>
+                    <h3 style="color: #ffffff;">PCI-DSS COMPLIANT<br>DATA MASKING</h3>
+                    <p>Sensitive information (like card numbers) is strictly masked to prevent visual data theft and
+                        comply with global payment security standards.</p>
+                </div>
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 2</div>
+                    <h3 style="color: #ffffff;">ENCRYPTED DATA<br>IN TRANSIT</h3>
+                    <p>Live financial data is dynamically fetched using secure HTTPS/TLS APIs, effectively neutralizing
+                        Man-in-the-Middle (MitM) interception risks.</p>
+                </div>
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 3</div>
+                    <h3>ZERO TRUST & STEP-UP<br>AUTHENTICATION</h3>
+                    <p>High-risk actions (Transfers/Withdrawals) operate on a "Zero Trust" model, demanding immediate
+                        biometric or OTP re-verification before execution.</p>
+                </div>
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 4</div>
+                    <h3 style="color: #ffffff;">AI-DRIVEN FRAUD<br>DETECTION</h3>
+                    <p>The backend actively monitors transaction telemetry (e.g., login locations, unusual amounts) to
+                        instantly trigger security alerts for anomalous behavior.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12 -->
+        <div class="slide slide-12 comparison-slide">
+            <div class="section-title">GUI ANALYSIS</div>
+            <h2>PROFILE & SETTINGS FLOW</h2>
+            <div class="slide-columns">
+                <div class="text-column">
+                    <div class="card neon">
+                        <div class="card-label">1. Profile Main Menu</div>
+                        <ul
+                            style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 15px; text-transform: none; font-weight: normal; letter-spacing: 0; line-height: 1.5;">
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Identity Header:</strong> Clear placement of the
+                                    user's avatar (with an inline edit function), full name, and registered number.
+                                </div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Navigation Architecture:</strong> Utilizes a standard
+                                    list view with directional chevrons (>), indicating deeper menu hierarchies.</div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Inline Controls:</strong> Settings like "Dark Mode"
+                                    use direct toggle switches, allowing immediate state changes without leaving the
+                                    screen.</div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Destructive Action Emphasis:</strong> The "Logout"
+                                    button is distinctly colored (Red) to visually warn the user of a session-ending
+                                    action.</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card neon">
+                        <div class="card-label">2. Logout Confirmation</div>
+                        <ul
+                            style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 15px; text-transform: none; font-weight: normal; letter-spacing: 0; line-height: 1.5;">
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Focus-Driven UI (Bottom Sheet):</strong> Employs a
+                                    dimmed background overlay with a bottom-sheet modal to focus user attention
+                                    completely on the decision.</div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Clear Intent Verification:</strong> Explicitly asks
+                                    for confirmation to prevent accidental session termination.</div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Action Hierarchy:</strong> Contrasts a subdued
+                                    "Cancel" button (secondary) with a dominant "Yes, Logout" button (primary) to guide
+                                    the final interaction safely.</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="image-column">
+                    <div class="image-column-main">
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_42.jpg" alt="Screen 16" style="width: 100%; padding: 0;">
+                            <div class="card-label">Profile Main Menu</div>
+                        </div>
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_43.jpg" alt="Screen 17" style="width: 100%; padding: 0;">
+                            <div class="card-label">Logout Confirmation Modal</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 13 -->
+        <div class="slide slide-13 comparison-slide">
+            <div class="section-title">CYBERSECURITY</div>
+            <h2>CYBERSECURITY & BACKEND PROCESSING</h2>
+            <div class="cards-container">
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 1</div>
+                    <h3 style="color: #ffffff;">SECURE SESSION<br>TERMINATION</h3>
+                    <p>Selecting "Logout" instantly destroys active Session Tokens (e.g., JWT) on both the client and
+                        server, immediately revoking all API access rights.</p>
+                </div>
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 2</div>
+                    <h3 style="color: #ffffff;">LOCAL CACHE<br>WIPING</h3>
+                    <p>The app automatically purges sensitive financial data (balances, transaction history) from local
+                        device memory to prevent offline data extraction if the device is compromised.</p>
+                </div>
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 3</div>
+                    <h3>CENTRALIZED<br>SECURITY HUB</h3>
+                    <p>Features a dedicated portal for advanced account controls, facilitating features like Two-Factor
+                        Authentication (2FA) and active device management.</p>
+                </div>
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 4</div>
+                    <h3 style="color: #ffffff;">REGULATORY<br>COMPLIANCE</h3>
+                    <p>Prominent placement of the Privacy Policy ensures transparent data handling, aligning with global
+                        data protection frameworks (e.g., GDPR/CCPA).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Presenter Intro Slide 2 -->
+        <div class="slide slide-intro comparison-slide"
+            style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+            <div class="section-title" style="margin-bottom: 15px; font-size: 16px; letter-spacing: 8px;">PART 02</div>
+            <h2 style="font-size: 85px; text-shadow: 0 0 40px rgba(0, 217, 255, 0.4); margin-bottom: 10px;">M. ABDULLAH
+            </h2>
+            <div style="font-size: 22px; color: #7b68ee; font-weight: 700; letter-spacing: 6px; margin-bottom: 60px;">
+                ROLL NO: 561</div>
+        </div>
+
+        <!-- Slide 14 -->
+        <div class="slide slide-14 comparison-slide">
+            <div class="section-title">GUI ANALYSIS</div>
+            <h2>LOAN APPLICATION FLOW</h2>
+            <div class="slide-columns">
+                <div class="text-column">
+                    <div class="card neon">
+                        <div class="card-label">1. Homepage Action Menu (Modal)</div>
+                        <ul
+                            style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 15px; text-transform: none; font-weight: normal; letter-spacing: 0; line-height: 1.5;">
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Focus-Driven UI:</strong> Utilizes a blurred
+                                    background overlay (glassmorphism) to direct complete user attention to the popup
+                                    menu.</div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Clear Categorization:</strong> Displays 5 distinct
+                                    loan actions (Apply, History, Guide, Return, Eligibility) paired with intuitive
+                                    icons for quick visual recognition.</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card neon">
+                        <div class="card-label">2. Loan Guide: Step 1 (Data Collection)</div>
+                        <ul
+                            style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 15px; text-transform: none; font-weight: normal; letter-spacing: 0; line-height: 1.5;">
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Progressive Disclosure:</strong> Uses a tabbed
+                                    navigation system to break down the complex loan process into digestible phases.
+                                </div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Sequential Flow:</strong> Employs a vertical timeline
+                                    (1-6) to clearly outline the KYC data collection journey (Personal Info -> ID ->
+                                    Selfie).</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card neon">
+                        <div class="card-label">3. Loan Guide: Step 2 (Disbursement)</div>
+                        <ul
+                            style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 15px; text-transform: none; font-weight: normal; letter-spacing: 0; line-height: 1.5;">
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Educational Layout:</strong> Clearly shifts focus to
+                                    the post-approval phase (Step 2 tab).</div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Simplified Process:</strong> Reduces the final money
+                                    transfer process into a concise 4-step checklist (Initiate -> Select Details ->
+                                    Review -> Transfer), minimizing user anxiety.</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="image-column">
+                    <div class="image-column-main">
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_13.jpg" alt="Homepage Action Menu"
+                                style="width: 100%; padding: 0;">
+                            <div class="card-label">Homepage Action Menu</div>
+                        </div>
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_15.jpg" alt="Loan Guide: Step 1"
+                                style="width: 100%; padding: 0;">
+                            <div class="card-label">Loan Guide: Step 1 (Data Collection)</div>
+                        </div>
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_16.jpg" alt="Loan Guide: Step 2"
+                                style="width: 100%; padding: 0;">
+                            <div class="card-label">Loan Guide: Step 2 (Disbursement)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Slide 15 -->
+        <div class="slide slide-15 comparison-slide">
+            <div class="section-title">CYBERSECURITY & BACKEND</div>
+            <h2>LOAN PROCESSING</h2>
+            <div class="cards-container">
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 1</div>
+                    <h3 style="color: #ffffff;">E-KYC &<br>BIOMETRICS</h3>
+                    <p>Utilizes AI-driven OCR for ID extraction and "Liveness Detection" to prevent facial spoofing.</p>
+                </div>
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 2</div>
+                    <h3 style="color: #ffffff;">AUTOMATED<br>RISK ENGINE</h3>
+                    <p>Machine Learning models instantly analyze user data for real-time credit scoring and limit
+                        approval.</p>
+                </div>
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 3</div>
+                    <h3>PII<br>ENCRYPTION</h3>
+                    <p>Sensitive uploads (ID cards, selfies) are protected with End-to-End Encryption to prevent
+                        identity theft.</p>
+                </div>
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 4</div>
+                    <h3 style="color: #ffffff;">SECURE DISBURSEMENT<br>APIs</h3>
+                    <p>Fund transfers are executed via digitally signed internal APIs, generating immutable audit
+                        trails.</p>
+                </div>
+                <div class="card neon" style="flex: 0 1 100%; max-width: 100%;">
+                    <div class="card-label">SECURITY LAYER 5</div>
+                    <h3 style="color: #ffffff;">ANTI-FRAUD<br>SOCIAL GRAPHING</h3>
+                    <p>Cross-references emergency contacts to map social graphs and instantly flag known scammer
+                        networks.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 16 -->
+        <div class="slide slide-16 comparison-slide">
+            <div class="section-title">APP FEATURE MODULE 8</div>
+            <h2>APP INTERFACE SCREENS</h2>
+            <div class="slide-columns">
+                <div class="text-column">
+                    <div class="card neon">
+                        <div class="card-label">Screen 22</div>
+                        <p>Module interaction representation and primary data inputs.</p>
+                    </div>
+                    <div class="card neon">
+                        <div class="card-label">Screen 23</div>
+                        <p>Information visualization and core navigational options.</p>
+                    </div>
+                    <div class="card neon">
+                        <div class="card-label">Screen 24</div>
+                        <p>Action completion, status updates, and tracking interface.</p>
+                    </div>
+                </div>
+                <div class="image-column">
+                    <div class="image-column-main">
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_22.jpg" alt="Screen 22" style="width: 100%; padding: 0;">
+                            <div class="card-label">Screen 22</div>
+                        </div>
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_23.jpg" alt="Screen 23" style="width: 100%; padding: 0;">
+                            <div class="card-label">Screen 23</div>
+                        </div>
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_24.jpg" alt="Screen 24" style="width: 100%; padding: 0;">
+                            <div class="card-label">Screen 24</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 17 -->
+        <div class="slide slide-17 comparison-slide">
+            <div class="section-title">SECURITY CONTROLS 8</div>
+            <h2>DATA PROTECTION</h2>
+            <div class="cards-container">
+                <div class="card neon">
+                    <div class="card-label">SECURITY LAYER 1</div>
+                    <h3 style="color: #ffffff;">ENCRYPTION<br>STANDARDS</h3>
+                    <p>All interactions in this module are protected by advanced cryptographic standards to ensure data
+                        integrity.</p>
+                </div>
+                <div class="card neon">
+                    <div class="card-label">SECURITY LAYER 2</div>
+                    <h3 style="color: #ffffff;">ACCESS<br>CONTROL</h3>
+                    <p>Strict role-based <strong>access control</strong> mechanisms prevent unauthorized execution of
+                        privileged operations.</p>
+                </div>
+                <div class="card neon">
+                    <div class="card-label">SECURITY LAYER 3</div>
+                    <h3>THREAT<br>MITIGATION</h3>
+                    <p>Real-time threat detection algorithms monitor module inputs to prevent injection and logic
+                        <strong>vulnerabilities</strong>.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 18 -->
+        <div class="slide slide-18 comparison-slide">
+            <div class="section-title">APP FEATURE MODULE 9</div>
+            <h2>APP INTERFACE SCREENS</h2>
+            <div class="slide-columns">
+                <div class="text-column">
+                    <div class="card neon">
+                        <div class="card-label">Screen 25</div>
+                        <p>Module interaction representation and primary data inputs.</p>
+                    </div>
+                    <div class="card neon">
+                        <div class="card-label">Screen 26</div>
+                        <p>Information visualization and core navigational options.</p>
+                    </div>
+                    <div class="card neon">
+                        <div class="card-label">Screen 27</div>
+                        <p>Action completion, status updates, and tracking interface.</p>
+                    </div>
+                </div>
+                <div class="image-column">
+                    <div class="image-column-main">
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_25.jpg" alt="Screen 25" style="width: 100%; padding: 0;">
+                            <div class="card-label">Screen 25</div>
+                        </div>
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_26.jpg" alt="Screen 26" style="width: 100%; padding: 0;">
+                            <div class="card-label">Screen 26</div>
+                        </div>
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_27.jpg" alt="Screen 27" style="width: 100%; padding: 0;">
+                            <div class="card-label">Screen 27</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 19 -->
+        <div class="slide slide-19 comparison-slide">
+            <div class="section-title">SECURITY CONTROLS 9</div>
+            <h2>DATA PROTECTION</h2>
+            <div class="cards-container">
+                <div class="card neon">
+                    <div class="card-label">SECURITY LAYER 1</div>
+                    <h3 style="color: #ffffff;">ENCRYPTION<br>STANDARDS</h3>
+                    <p>All interactions in this module are protected by advanced cryptographic standards to ensure data
+                        integrity.</p>
+                </div>
+                <div class="card neon">
+                    <div class="card-label">SECURITY LAYER 2</div>
+                    <h3 style="color: #ffffff;">ACCESS<br>CONTROL</h3>
+                    <p>Strict role-based <strong>access control</strong> mechanisms prevent unauthorized execution of
+                        privileged operations.</p>
+                </div>
+                <div class="card neon">
+                    <div class="card-label">SECURITY LAYER 3</div>
+                    <h3>THREAT<br>MITIGATION</h3>
+                    <p>Real-time threat detection algorithms monitor module inputs to prevent injection and logic
+                        <strong>vulnerabilities</strong>.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 20 -->
+        <div class="slide slide-20 comparison-slide">
+            <div class="section-title">APP FEATURE MODULE 10</div>
+            <h2>APP INTERFACE SCREENS</h2>
+            <div class="slide-columns">
+                <div class="text-column">
+                    <div class="card neon">
+                        <div class="card-label">Screen 28</div>
+                        <p>Module interaction representation and primary data inputs.</p>
+                    </div>
+                    <div class="card neon">
+                        <div class="card-label">Screen 29</div>
+                        <p>Information visualization and core navigational options.</p>
+                    </div>
+                    <div class="card neon">
+                        <div class="card-label">Screen 30</div>
+                        <p>Action completion, status updates, and tracking interface.</p>
+                    </div>
+                </div>
+                <div class="image-column">
+                    <div class="image-column-main">
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_28.jpg" alt="Screen 28" style="width: 100%; padding: 0;">
+                            <div class="card-label">Screen 28</div>
+                        </div>
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_29.jpg" alt="Screen 29" style="width: 100%; padding: 0;">
+                            <div class="card-label">Screen 29</div>
+                        </div>
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_30.jpg" alt="Screen 30" style="width: 100%; padding: 0;">
+                            <div class="card-label">Screen 30</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 21 -->
+        <div class="slide slide-21 comparison-slide">
+            <div class="section-title">SECURITY CONTROLS 10</div>
+            <h2>DATA PROTECTION</h2>
+            <div class="cards-container">
+                <div class="card neon">
+                    <div class="card-label">SECURITY LAYER 1</div>
+                    <h3 style="color: #ffffff;">ENCRYPTION<br>STANDARDS</h3>
+                    <p>All interactions in this module are protected by advanced cryptographic standards to ensure data
+                        integrity.</p>
+                </div>
+                <div class="card neon">
+                    <div class="card-label">SECURITY LAYER 2</div>
+                    <h3 style="color: #ffffff;">ACCESS<br>CONTROL</h3>
+                    <p>Strict role-based <strong>access control</strong> mechanisms prevent unauthorized execution of
+                        privileged operations.</p>
+                </div>
+                <div class="card neon">
+                    <div class="card-label">SECURITY LAYER 3</div>
+                    <h3>THREAT<br>MITIGATION</h3>
+                    <p>Real-time threat detection algorithms monitor module inputs to prevent injection and logic
+                        <strong>vulnerabilities</strong>.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 22 -->
+        <div class="slide slide-22 final-slide">
+            <div class="thank-you-container">
+                <h1>THANK YOU</h1>
+                <div class="divider"></div>
+                <div class="questions-title">ANY QUESTIONS?</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="nav-controls">
+    </div>
+
+    <button class="arrow-nav prev" onclick="prevSlide()">‹</button>
+    <button class="arrow-nav next" onclick="nextSlide()">›</button>
+
+    <div class="progress-bar" style="width: 0%"></div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const navControls = document.querySelector('.nav-controls');
+
+        navControls.innerHTML = '';
+        for (let i = 0; i < totalSlides; i++) {
+            const btn = document.createElement('button');
+            btn.className = 'nav-btn' + (i === 0 ? ' active' : '');
+            btn.onclick = () => goToSlide(i);
+            navControls.appendChild(btn);
+        }
+
+        let currentSlide = 0;
+        const navBtns = document.querySelectorAll('.nav-btn');
+        const progressBar = document.querySelector('.progress-bar');
+
+        function updateSlides() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                }
+            });
+
+            navBtns.forEach((btn, index) => {
+                btn.classList.toggle('active', index === currentSlide);
+            });
+
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            progressBar.style.width = progress + '%';
+
+            const currentEl = document.querySelector('.current-slide');
+            const totalEl = document.querySelector('.total-slides');
+            if (currentEl && totalEl) {
+                currentEl.textContent = currentSlide + 1;
+                totalEl.textContent = totalSlides;
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateSlides();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlides();
+            }
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlides();
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchEndX < touchStartX - 50) nextSlide();
+            if (touchEndX > touchStartX + 50) prevSlide();
+        });
+
+        updateSlides();
+    </script>
+</body>
+
+</html>
