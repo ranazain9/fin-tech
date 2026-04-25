@@ -305,7 +305,7 @@
             left: 50%;
             transform: translateX(-50%);
             width: 1px;
-            border-left: 5px dashed rgb(0 217 255);
+            border-left: 3px dashed rgb(0 217 255);
             opacity: 0.8;
         }
 
@@ -1815,36 +1815,63 @@
 
         <!-- Slide 16 -->
         <div class="slide slide-16 comparison-slide">
-            <div class="section-title">APP FEATURE MODULE 8</div>
-            <h2>APP INTERFACE SCREENS</h2>
+            <div class="section-title">GUI ANALYSIS</div>
+            <h2>ELIGIBILITY & APPLICATION FLOW</h2>
             <div class="slide-columns">
                 <div class="text-column">
                     <div class="card neon">
-                        <div class="card-label">Screen 22</div>
-                        <p>Module interaction representation and primary data inputs.</p>
+                        <div class="card-label">1. Loan Eligibility Modal</div>
+                        <ul
+                            style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 15px; text-transform: none; font-weight: normal; letter-spacing: 0; line-height: 1.5;">
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Clear Financial Metrics:</strong> Prominent and
+                                    immediate display of approved loan parameters (Maximum Limit, Term, Interest Rate).
+                                </div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Action-Oriented Design:</strong> Features a dominant
+                                    primary Call-to-Action (CTA) to seamlessly transition the user from viewing limits
+                                    to applying.</div>
+                            </li>
+                        </ul>
                     </div>
                     <div class="card neon">
-                        <div class="card-label">Screen 23</div>
-                        <p>Information visualization and core navigational options.</p>
-                    </div>
-                    <div class="card neon">
-                        <div class="card-label">Screen 24</div>
-                        <p>Action completion, status updates, and tracking interface.</p>
+                        <div class="card-label">2. Application Form (KYC Phase)</div>
+                        <ul
+                            style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 15px; text-transform: none; font-weight: normal; letter-spacing: 0; line-height: 1.5;">
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Progressive UI:</strong> Utilizes a clear step
+                                    indicator (e.g., "1/5") to manage user expectations and reduce form-abandonment
+                                    rates.</div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Structured Data Collection:</strong> Clean, scrollable
+                                    layout designed for the efficient input of critical KYC details (Identity, SSN,
+                                    Demographics).</div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div class="image-column">
                     <div class="image-column-main">
                         <div class="card neon">
-                            <img src="./Images/Bank_App_UI_22.jpg" alt="Screen 22" style="width: 100%; padding: 0;">
-                            <div class="card-label">Screen 22</div>
+                            <img src="./Images/Bank_App_UI_17.jpg" alt="Eligibility Modal"
+                                style="width: 100%; padding: 0;">
+                            <div class="card-label">Loan Eligibility Modal</div>
                         </div>
                         <div class="card neon">
-                            <img src="./Images/Bank_App_UI_23.jpg" alt="Screen 23" style="width: 100%; padding: 0;">
-                            <div class="card-label">Screen 23</div>
+                            <img src="./Images/Bank_App_UI_18.jpg" alt="Application Form KYC"
+                                style="width: 100%; padding: 0;">
+                            <div class="card-label">Application Form (KYC Phase)</div>
                         </div>
                         <div class="card neon">
-                            <img src="./Images/Bank_App_UI_24.jpg" alt="Screen 24" style="width: 100%; padding: 0;">
-                            <div class="card-label">Screen 24</div>
+                            <img src="./Images/Bank_App_UI_19.jpg" alt="Application Form KYC"
+                                style="width: 100%; padding: 0;">
+                            <div class="card-label">Application Form (KYC Phase)</div>
                         </div>
                     </div>
                 </div>
@@ -1853,26 +1880,32 @@
 
         <!-- Slide 17 -->
         <div class="slide slide-17 comparison-slide">
-            <div class="section-title">SECURITY CONTROLS 8</div>
-            <h2>DATA PROTECTION</h2>
+            <div class="section-title">CYBERSECURITY & BACKEND PROCESSING</div>
+            <h2>RISK & COMPLIANCE</h2>
             <div class="cards-container">
-                <div class="card neon">
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
                     <div class="card-label">SECURITY LAYER 1</div>
-                    <h3 style="color: #ffffff;">ENCRYPTION<br>STANDARDS</h3>
-                    <p>All interactions in this module are protected by advanced cryptographic standards to ensure data
-                        integrity.</p>
+                    <h3 style="color: #ffffff;">DYNAMIC AI<br>RISK PRICING</h3>
+                    <p>The backend AI engine analyzes real-time transaction history to generate dynamic risk scores,
+                        offering personalized limits and interest rates.</p>
                 </div>
-                <div class="card neon">
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
                     <div class="card-label">SECURITY LAYER 2</div>
-                    <h3 style="color: #ffffff;">ACCESS<br>CONTROL</h3>
-                    <p>Strict role-based <strong>access control</strong> mechanisms prevent unauthorized execution of
-                        privileged operations.</p>
+                    <h3 style="color: #ffffff;">AES-256 PII<br>ENCRYPTION</h3>
+                    <p>Highly sensitive data (like SSNs/National IDs) is protected using AES-256 encryption, ensuring
+                        strict regulatory compliance and preventing data breaches.</p>
                 </div>
-                <div class="card neon">
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
                     <div class="card-label">SECURITY LAYER 3</div>
-                    <h3>THREAT<br>MITIGATION</h3>
-                    <p>Real-time threat detection algorithms monitor module inputs to prevent injection and logic
-                        <strong>vulnerabilities</strong>.
+                    <h3>SECURE STATE<br>MANAGEMENT</h3>
+                    <p>Multi-step form inputs are temporarily held in encrypted memory buffers (never plaintext) to
+                        prevent data leaks during app crashes or unauthorized access attempts.</p>
+                </div>
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 4</div>
+                    <h3 style="color: #ffffff;">AML/CFT &<br>FRAUD PREVENTION</h3>
+                    <p>Active backend validation cross-checks inputs to detect suspicious activities, instantly
+                        rejecting tampering attempts and flagging accounts for Anti-Money Laundering (AML) compliance.
                     </p>
                 </div>
             </div>
@@ -1880,36 +1913,63 @@
 
         <!-- Slide 18 -->
         <div class="slide slide-18 comparison-slide">
-            <div class="section-title">APP FEATURE MODULE 9</div>
-            <h2>APP INTERFACE SCREENS</h2>
+            <div class="section-title">GUI ANALYSIS</div>
+            <h2>EMPLOYMENT & CONTACTS FLOW</h2>
             <div class="slide-columns">
                 <div class="text-column">
                     <div class="card neon">
-                        <div class="card-label">Screen 25</div>
-                        <p>Module interaction representation and primary data inputs.</p>
+                        <div class="card-label">1. Job Information Form (Step 2/5)</div>
+                        <ul
+                            style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 15px; text-transform: none; font-weight: normal; letter-spacing: 0; line-height: 1.5;">
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Progressive Tracking:</strong> The top progress bar
+                                    visually updates to "2/5", keeping the user oriented during a lengthy data entry
+                                    process.</div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Structured Scrollable Layout:</strong> Utilizes a
+                                    seamless vertical scroll to efficiently capture extensive professional metrics (Job
+                                    Title, Income, Industry) without cluttering the screen.</div>
+                            </li>
+                        </ul>
                     </div>
                     <div class="card neon">
-                        <div class="card-label">Screen 26</div>
-                        <p>Information visualization and core navigational options.</p>
-                    </div>
-                    <div class="card neon">
-                        <div class="card-label">Screen 27</div>
-                        <p>Action completion, status updates, and tracking interface.</p>
+                        <div class="card-label">2. Emergency Contacts Form (Step 3/5)</div>
+                        <ul
+                            style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 15px; text-transform: none; font-weight: normal; letter-spacing: 0; line-height: 1.5;">
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Seamless Phase Transition:</strong> Smoothly advances
+                                    the user to the third phase of the application, updating the visual progress
+                                    indicator.</div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Secondary Verification UI:</strong> Cleanly structured
+                                    fields designed to gather essential backup contact details (Relationship, Contact
+                                    Info) for backend risk assessment.</div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div class="image-column">
                     <div class="image-column-main">
                         <div class="card neon">
-                            <img src="./Images/Bank_App_UI_25.jpg" alt="Screen 25" style="width: 100%; padding: 0;">
-                            <div class="card-label">Screen 25</div>
+                            <img src="./Images/Bank_App_UI_20.jpg" alt="Job Information Form"
+                                style="width: 100%; padding: 0;">
+                            <div class="card-label">Job Information Form (Step 2/5)</div>
                         </div>
                         <div class="card neon">
-                            <img src="./Images/Bank_App_UI_26.jpg" alt="Screen 26" style="width: 100%; padding: 0;">
-                            <div class="card-label">Screen 26</div>
+                            <img src="./Images/Bank_App_UI_21.jpg" alt="Emergency Contacts Form"
+                                style="width: 100%; padding: 0;">
+                            <div class="card-label">Emergency Contacts Form (Step 3/5)</div>
                         </div>
                         <div class="card neon">
-                            <img src="./Images/Bank_App_UI_27.jpg" alt="Screen 27" style="width: 100%; padding: 0;">
-                            <div class="card-label">Screen 27</div>
+                            <img src="./Images/Bank_App_UI_22.jpg" alt="Emergency Contacts Form"
+                                style="width: 100%; padding: 0;">
+                            <div class="card-label">Emergency Contacts Form (Step 3/5)</div>
                         </div>
                     </div>
                 </div>
@@ -1918,63 +1978,104 @@
 
         <!-- Slide 19 -->
         <div class="slide slide-19 comparison-slide">
-            <div class="section-title">SECURITY CONTROLS 9</div>
-            <h2>DATA PROTECTION</h2>
+            <div class="section-title">CYBERSECURITY & BACKEND</div>
+            <h2>EMPLOYMENT VERIFICATION</h2>
             <div class="cards-container">
-                <div class="card neon">
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
                     <div class="card-label">SECURITY LAYER 1</div>
-                    <h3 style="color: #ffffff;">ENCRYPTION<br>STANDARDS</h3>
-                    <p>All interactions in this module are protected by advanced cryptographic standards to ensure data
-                        integrity.</p>
+                    <h3 style="color: #ffffff;">OPEN BANKING<br>INTEGRATION</h3>
+                    <p>Automates income verification via secure third-party APIs (e.g., Plaid) to instantly detect and
+                        prevent financial misrepresentation.</p>
                 </div>
-                <div class="card neon">
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
                     <div class="card-label">SECURITY LAYER 2</div>
-                    <h3 style="color: #ffffff;">ACCESS<br>CONTROL</h3>
-                    <p>Strict role-based <strong>access control</strong> mechanisms prevent unauthorized execution of
-                        privileged operations.</p>
+                    <h3 style="color: #ffffff;">CORPORATE<br>CROSS-REFERENCING</h3>
+                    <p>Validates employer credentials against external corporate databases to actively identify shell
+                        companies and fake employment claims.</p>
                 </div>
-                <div class="card neon">
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
                     <div class="card-label">SECURITY LAYER 3</div>
-                    <h3>THREAT<br>MITIGATION</h3>
-                    <p>Real-time threat detection algorithms monitor module inputs to prevent injection and logic
-                        <strong>vulnerabilities</strong>.
-                    </p>
+                    <h3>PREDICTIVE ML<br>RISK SCORING</h3>
+                    <p>Feeds employment tenure and stability metrics into Machine Learning models to calculate precise
+                        default probabilities.</p>
+                </div>
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 4</div>
+                    <h3 style="color: #ffffff;">ADVANCED ANTI-FRAUD<br>TELEMETRY</h3>
+                    <p>Utilizes Location APIs and contact network analysis to flag synthetic identities and data
+                        injection attempts in real-time.</p>
                 </div>
             </div>
         </div>
 
         <!-- Slide 20 -->
+        <!-- Slide 20 -->
         <div class="slide slide-20 comparison-slide">
-            <div class="section-title">APP FEATURE MODULE 10</div>
-            <h2>APP INTERFACE SCREENS</h2>
+            <div class="section-title">GUI ANALYSIS</div>
+            <h2>IDENTITY VERIFICATION FLOW</h2>
             <div class="slide-columns">
-                <div class="text-column">
+                <div class="text-column"
+                    style="flex: 1.1; max-width: 50%; padding-right: 30px; box-sizing: border-box;">
                     <div class="card neon">
-                        <div class="card-label">Screen 28</div>
-                        <p>Module interaction representation and primary data inputs.</p>
+                        <div class="card-label">1. ID Card Capture (Step 4/5)</div>
+                        <ul
+                            style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 15px; text-transform: none; font-weight: normal; letter-spacing: 0; line-height: 1.5;">
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Pre-emptive Educational UX:</strong> Displays visual
+                                    "Correct vs. Wrong" examples (e.g., glare, blur) prior to camera activation to
+                                    significantly minimize user capture errors.</div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Quality Assurance Loop:</strong> Enforces a mandatory
+                                    review state with a clear "Retake" fallback, ensuring optimal image quality before
+                                    progression.</div>
+                            </li>
+                        </ul>
                     </div>
                     <div class="card neon">
-                        <div class="card-label">Screen 29</div>
-                        <p>Information visualization and core navigational options.</p>
-                    </div>
-                    <div class="card neon">
-                        <div class="card-label">Screen 30</div>
-                        <p>Action completion, status updates, and tracking interface.</p>
+                        <div class="card-label">2. Selfie with ID (Step 5/5)</div>
+                        <ul
+                            style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 15px; text-transform: none; font-weight: normal; letter-spacing: 0; line-height: 1.5;">
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Visual Instruction:</strong> Utilizes intuitive vector
+                                    illustrations over text-heavy guidelines to demonstrate the exact physical
+                                    positioning required for the selfie.</div>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 10px;">
+                                <span style="color: #00d9ff; font-weight: 900;">▹</span>
+                                <div><strong style="color: #fff;">Frictionless Conclusion:</strong> Concludes the 5-step
+                                    application journey with a definitive "Submit Application" primary Call-to-Action
+                                    (CTA).</div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <div class="image-column">
-                    <div class="image-column-main">
-                        <div class="card neon">
-                            <img src="./Images/Bank_App_UI_28.jpg" alt="Screen 28" style="width: 100%; padding: 0;">
-                            <div class="card-label">Screen 28</div>
+                <div class="image-column"
+                    style="flex: 0.9; display: flex; align-items: center; justify-content: center; max-width: 50%;">
+                    <div class="image-column-main"
+                        style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; max-width: 300px; width: 100%;">
+                        <div class="card neon" style="padding: 6px;">
+                            <img src="./Images/Bank_App_UI_23.jpg" alt="ID Card Capture"
+                                style="width: 100%; border-radius: 4px;">
+                            <div class="card-label" style="font-size: 11px; margin-top: 4px;">ID Front</div>
                         </div>
-                        <div class="card neon">
-                            <img src="./Images/Bank_App_UI_29.jpg" alt="Screen 29" style="width: 100%; padding: 0;">
-                            <div class="card-label">Screen 29</div>
+                        <div class="card neon" style="padding: 6px;">
+                            <img src="./Images/Bank_App_UI_24.jpg" alt="ID Verification"
+                                style="width: 100%; border-radius: 4px;">
+                            <div class="card-label" style="font-size: 11px; margin-top: 4px;">ID Back</div>
                         </div>
-                        <div class="card neon">
-                            <img src="./Images/Bank_App_UI_30.jpg" alt="Screen 30" style="width: 100%; padding: 0;">
-                            <div class="card-label">Screen 30</div>
+                        <div class="card neon" style="padding: 6px;">
+                            <img src="./Images/Bank_App_UI_25.jpg" alt="Selfie Capture"
+                                style="width: 100%; border-radius: 4px;">
+                            <div class="card-label" style="font-size: 11px; margin-top: 4px;">Selfie Frame</div>
+                        </div>
+                        <div class="card neon" style="padding: 6px;">
+                            <img src="./Images/Bank_App_UI_26.jpg" alt="Completion"
+                                style="width: 100%; border-radius: 4px;">
+                            <div class="card-label" style="font-size: 11px; margin-top: 4px;">Completion</div>
                         </div>
                     </div>
                 </div>
@@ -1983,37 +2084,498 @@
 
         <!-- Slide 21 -->
         <div class="slide slide-21 comparison-slide">
-            <div class="section-title">SECURITY CONTROLS 10</div>
-            <h2>DATA PROTECTION</h2>
+            <div class="section-title">CYBERSECURITY & BACKEND</div>
+            <h2>e-KYC SYSTEMS</h2>
             <div class="cards-container">
-                <div class="card neon">
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
                     <div class="card-label">SECURITY LAYER 1</div>
-                    <h3 style="color: #ffffff;">ENCRYPTION<br>STANDARDS</h3>
-                    <p>All interactions in this module are protected by advanced cryptographic standards to ensure data
-                        integrity.</p>
+                    <h3 style="color: #ffffff;">OCR DATA<br>CROSS-MATCHING</h3>
+                    <p>Deploys Optical Character Recognition to extract ID text and instantly cross-verify it against
+                        user inputs, automatically flagging data anomalies.</p>
                 </div>
-                <div class="card neon">
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
                     <div class="card-label">SECURITY LAYER 2</div>
-                    <h3 style="color: #ffffff;">ACCESS<br>CONTROL</h3>
-                    <p>Strict role-based <strong>access control</strong> mechanisms prevent unauthorized execution of
-                        privileged operations.</p>
+                    <h3 style="color: #ffffff;">BIOMETRICS &<br>LIVENESS DETECTION</h3>
+                    <p>Utilizes facial recognition algorithms to match the selfie with the ID photo, alongside
+                        anti-spoofing liveness checks to neutralize identity fraud.</p>
                 </div>
-                <div class="card neon">
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
                     <div class="card-label">SECURITY LAYER 3</div>
-                    <h3>THREAT<br>MITIGATION</h3>
-                    <p>Real-time threat detection algorithms monitor module inputs to prevent injection and logic
-                        <strong>vulnerabilities</strong>.
-                    </p>
+                    <h3>AUTOMATED<br>DIGITAL FORENSICS</h3>
+                    <p>Scans document submissions for image quality (blur/glare) and cryptographic tampering to
+                        immediately reject digitally manipulated or fake IDs.</p>
+                </div>
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 4</div>
+                    <h3 style="color: #ffffff;">ZERO-FOOTPRINT<br>ENCRYPTION</h3>
+                    <p>Operates on a strict zero-footprint policy (no local gallery saves), transmitting highly
+                        sensitive image data via secure AES-256 encrypted API payloads.</p>
                 </div>
             </div>
         </div>
 
         <!-- Slide 22 -->
-        <div class="slide slide-22 final-slide">
-            <div class="thank-you-container">
-                <h1>THANK YOU</h1>
-                <div class="divider"></div>
-                <div class="questions-title">ANY QUESTIONS?</div>
+        <div class="slide slide-22 comparison-slide">
+            <div class="section-title">GUI ANALYSIS</div>
+            <h2>APPLICATION STATUS FLOW</h2>
+            <div class="slide-columns">
+                <div class="text-column">
+                    <div class="card neon">
+                        <div class="card-label">1. "Under Review" State</div>
+                        <p><strong>Visual Reassurance:</strong> A timer and progress bar actively reduce user anxiety
+                            during backend processing.</p>
+                        <p><strong>Expectation Management:</strong> A clear 24-hour timeframe builds trust and minimizes
+                            unnecessary support queries.</p>
+                        <p><strong>Frictionless Navigation:</strong> A simple "OK" action provides a smooth, intuitive
+                            exit back to the dashboard.</p>
+                    </div>
+                    <div class="card neon">
+                        <div class="card-label">2. "Successfully Disbursed" State</div>
+                        <p><strong>Instant Confirmation:</strong> Recognizable money graphics instantly communicate
+                            financial success.</p>
+                        <p><strong>Definitive Status:</strong> Explicit text confirms the successful transfer of funds
+                            to the user's account.</p>
+                        <p><strong>Emotional Design:</strong> A positive Call-to-Action ("Ok, Great!") ensures a
+                            satisfying and memorable end to the user journey.</p>
+                    </div>
+                </div>
+                <div class="image-column">
+                    <div class="image-column-main">
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_27.jpg" alt="Under Review State UI"
+                                style="width: 100%; padding: 0;">
+                            <div class="card-label">Under Review</div>
+                        </div>
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_28.jpg" alt="Disbursed State UI"
+                                style="width: 100%; padding: 0;">
+                            <div class="card-label">Disbursed</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 23 -->
+        <div class="slide slide-23 comparison-slide">
+            <div class="section-title">CYBERSECURITY & BACKEND</div>
+            <h2>UNDER REVIEW TO DISBURSEMENT</h2>
+            <div class="cards-container">
+                <div class="card neon">
+                    <div class="card-label">SECURITY LAYER 1</div>
+                    <h3 style="color: #ffffff;">HYBRID<br>UNDERWRITING</h3>
+                    <p>The AI Risk Engine processes the application instantly. If anomalies are detected, the system
+                        automatically escalates the profile to human staff (Maker-Checker protocol) within the 24-hour
+                        window.</p>
+                </div>
+                <div class="card neon">
+                    <div class="card-label">SECURITY LAYER 2</div>
+                    <h3 style="color: #ffffff;">mTLS<br>DISBURSEMENT</h3>
+                    <p>Fund transfers to the Core Banking System are executed via secure Mutual TLS (mTLS) encrypted
+                        APIs, strictly utilizing digital signatures to prevent payload tampering.</p>
+                </div>
+                <div class="card neon">
+                    <div class="card-label">SECURITY LAYER 3</div>
+                    <h3>IMMUTABLE<br>AUDIT TRAIL</h3>
+                    <p>Upon disbursement, device telemetry (IP, Device ID) and timestamps are permanently locked into an
+                        immutable database ledger, ensuring strict legal non-repudiation of the loan.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Presenter Intro Slide 3 -->
+        <div class="slide slide-intro comparison-slide"
+            style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+            <div class="section-title" style="margin-bottom: 15px; font-size: 16px; letter-spacing: 8px;">PART 03</div>
+            <h2 style="font-size: 85px; text-shadow: 0 0 40px rgba(0, 217, 255, 0.4); margin-bottom: 10px;">Hafiz Ahmed
+                Rehan</h2>
+            <div style="font-size: 22px; color: #7b68ee; font-weight: 700; letter-spacing: 6px; margin-bottom: 60px;">
+                ROLL NO: 687</div>
+        </div>
+
+        <!-- Slide 24 -->
+        <div class="slide slide-24 comparison-slide">
+            <div class="section-title">GUI ANALYSIS</div>
+            <h2>FUNDS TRANSFER FLOW</h2>
+            <div class="slide-columns">
+                <div class="text-column">
+                    <div class="card neon">
+                        <div class="card-label">1. Transfer Dashboard</div>
+                        <p><strong>Omnichannel Options:</strong> Features quick-action icons (Bank, Mobile, QR) to
+                            accommodate various transfer methods.</p>
+                        <p><strong>Optimized Routing:</strong> Prioritizes a "Recent Recipients" quick-scroll for rapid
+                            repeat transfers, alongside a fully searchable contact directory.</p>
+                    </div>
+                    <div class="card neon">
+                        <div class="card-label">2. Bank Selection Modal</div>
+                        <p><strong>Focus-Driven UI:</strong> Utilizes a bottom-sheet modal to maintain user context
+                            without opening a completely new screen.</p>
+                        <p><strong>Frictionless Discovery:</strong> Integrates an instant search bar and provides clear
+                            visual feedback (checkmarks) to confirm bank selection.</p>
+                    </div>
+                    <div class="card neon">
+                        <div class="card-label">3. Transaction Details Form</div>
+                        <p><strong>Smart Auto-Fill:</strong> Automates field population based on selected bank
+                            parameters to prevent manual data entry errors and accelerate the transaction flow.</p>
+                    </div>
+                </div>
+                <div class="image-column">
+                    <div class="image-column-main">
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_29.jpg" alt="Transfer Dashboard UI"
+                                style="width: 100%; padding: 0;">
+                            <div class="card-label">Transfer Dashboard</div>
+                        </div>
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_30.jpg" alt="Bank Selection Modal UI"
+                                style="width: 100%; padding: 0;">
+                            <div class="card-label">Bank Selection</div>
+                        </div>
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_31.jpg" alt="Transaction Details Form UI"
+                                style="width: 100%; padding: 0;">
+                            <div class="card-label">Transaction Details</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 25 -->
+        <div class="slide slide-25 comparison-slide">
+            <div class="section-title">CYBERSECURITY & BACKEND</div>
+            <h2>FUNDS TRANSFER PROTOCOL</h2>
+            <div class="cards-container">
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 1</div>
+                    <h3 style="color: #ffffff;">TITLE FETCHING<br>API VERIFICATION</h3>
+                    <p>Account number enter karte hi system central switch (e.g., 1LINK) se account holder ka naam fetch
+                        karta hai, taake user confirm kar sake ke transfer sahi recipient ko ja raha hai.</p>
+                </div>
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 2</div>
+                    <h3 style="color: #ffffff;">DATA MASKING<br>& PII SECURITY</h3>
+                    <p>Sensitive data (account number) UI par partially masked hota hai, taake shoulder surfing ya
+                        screenshots se information leak na ho.</p>
+                </div>
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 3</div>
+                    <h3>TRUSTED PAYEE<br>& RISK CONTROLS</h3>
+                    <p>Saved accounts ko “trusted” mark kiya jata hai, jab ke naye beneficiaries ke liye اضافی security
+                        (OTP / verification) apply hoti hai to prevent fraud.</p>
+                </div>
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 4</div>
+                    <h3 style="color: #ffffff;">SECURE TRANSACTION<br>PROCESSING</h3>
+                    <p>Transaction details encrypted payload (TLS 1.3) ke through backend ko bheji jati hain, jahan
+                        server-side validation (balance, limits, account status) ke baad hi transfer complete hota hai.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 26 -->
+        <div class="slide slide-26 comparison-slide">
+            <div class="section-title">GUI ANALYSIS</div>
+            <h2>TRANSFER CONFIRMATION FLOW</h2>
+            <div class="slide-columns">
+                <div class="text-column">
+                    <div class="card neon">
+                        <div class="card-label">1. Transaction Details Form</div>
+                        <p><strong>Contextual Awareness:</strong> Clearly displays the source account alongside the
+                            real-time available balance.</p>
+                        <p><strong>Dynamic Financial Feedback:</strong> Instantly calculates and previews the projected
+                            post-transfer balance as the user types the amount.</p>
+                        <p><strong>Structured Review:</strong> Organizes the masked beneficiary data and transfer
+                            purpose for a frictionless final verification.</p>
+                    </div>
+                    <div class="card neon">
+                        <div class="card-label">2. Verification Modal</div>
+                        <p><strong>Focus-Driven UI:</strong> Employs a dimmed background overlay (modal) to command
+                            immediate attention to the security prompt.</p>
+                        <p><strong>Seamless Authentication:</strong> Prioritizes quick biometric access (fingerprint)
+                            while providing a robust "Using PIN" fallback option.</p>
+                    </div>
+                </div>
+                <div class="image-column">
+                    <div class="image-column-main">
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_32.jpg" alt="Transaction Details UI"
+                                style="width: 100%; padding: 0;">
+                            <div class="card-label">Transaction Details Form</div>
+                        </div>
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_33.jpg" alt="Biometric Verification Modal"
+                                style="width: 100%; padding: 0;">
+                            <div class="card-label">Verification Modal</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 27 -->
+        <div class="slide slide-27 comparison-slide">
+            <div class="section-title">CYBERSECURITY & BACKEND</div>
+            <h2>TRANSFER EXECUTION</h2>
+            <div class="cards-container">
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 1</div>
+                    <h3 style="color: #ffffff;">ZERO TRUST &<br>STEP-UP AUTH</h3>
+                    <p>Enforces strict "Zero Trust" policies by demanding real-time biometric re-verification for
+                        high-risk actions, even for actively logged-in users.</p>
+                </div>
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 2</div>
+                    <h3 style="color: #ffffff;">AML REGULATORY<br>COMPLIANCE</h3>
+                    <p>Utilizes the "Purpose of Transfer" data to feed backend AI tracking algorithms, ensuring strict
+                        compliance with central bank Anti-Money Laundering (AML) directives.</p>
+                </div>
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 3</div>
+                    <h3>CRYPTOGRAPHIC<br>SIGNING</h3>
+                    <p>The biometric scan triggers the device's Secure Enclave to generate a cryptographic token,
+                        securely "signing" the transaction to guarantee absolute non-repudiation.</p>
+                </div>
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 4</div>
+                    <h3 style="color: #ffffff;">ATOMIC DATABASE<br>TRANSACTIONS</h3>
+                    <p>Employs strict "All-or-Nothing" rollback mechanisms at the database level to ensure funds are
+                        never duplicated or lost in transit during network failures.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 28 -->
+        <div class="slide slide-28 comparison-slide">
+            <div class="section-title">GUI ANALYSIS</div>
+            <h2>RECEIPT & SHARING</h2>
+            <div class="slide-columns">
+                <div class="text-column">
+                    <div class="card neon">
+                        <div class="card-label">1. Digital Receipt (Success State)</div>
+                        <p><strong>Visual Confirmation:</strong> 3D graphics and bold text deliver instant positive
+                            feedback.</p>
+                        <p><strong>Information Hierarchy:</strong> Prominently centers the amount, followed by clear
+                            metadata.</p>
+                        <p><strong>Structured Layout:</strong> Cleanly separates sender/receiver details using visual
+                            dividers.</p>
+                        <p><strong>Actionable CTAs:</strong> Distinct "Share" and "Save" buttons for instant export.</p>
+                    </div>
+                    <div class="card neon">
+                        <div class="card-label">2. Share Modal (Bottom Sheet)</div>
+                        <p><strong>Contextual UI:</strong> A dimmed overlay keeps focus without leaving the receipt
+                            page.</p>
+                        <p><strong>Frictionless Sharing:</strong> "Direct Share" for frequent contacts minimizes clicks.
+                        </p>
+                        <p><strong>Platform Flexibility:</strong> Quick-access icons (WhatsApp, Gmail) for seamless
+                            sharing.</p>
+                    </div>
+                </div>
+                <div class="image-column">
+                    <div class="image-column-main">
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_34.jpg" alt="Digital Receipt UI"
+                                style="width: 100%; padding: 0;">
+                            <div class="card-label">Digital Receipt</div>
+                        </div>
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_41.jpg" alt="Share Modal UI"
+                                style="width: 100%; padding: 0;">
+                            <div class="card-label">Share Modal</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 29 -->
+        <div class="slide slide-29 comparison-slide">
+            <div class="section-title">CYBERSECURITY & BACKEND</div>
+            <h2>DIGITAL RECEIPTS</h2>
+            <div class="cards-container">
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 1</div>
+                    <h3 style="color: #ffffff;">IMMUTABLE<br>AUDIT TRAIL</h3>
+                    <p>Reference ID secure system mein permanently log hoti hai for transaction tracking.</p>
+                </div>
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 2</div>
+                    <h3 style="color: #ffffff;">PII DATA<br>MASKING</h3>
+                    <p>Account details masked rehti hain to prevent data leaks during sharing.</p>
+                </div>
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 3</div>
+                    <h3>SECURE<br>TIMESTAMPS</h3>
+                    <p>Time trusted servers (NTP) se fetch hota hai, device manipulation avoid hoti hai.</p>
+                </div>
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 4</div>
+                    <h3 style="color: #ffffff;">ANTI-FORGERY<br>PROTECTION</h3>
+                    <p>Cryptographic watermarking receipt tampering ko detect karti hai.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 30 -->
+        <div class="slide slide-30 comparison-slide">
+            <div class="section-title">GUI ANALYSIS</div>
+            <h2>TRANSACTION & DISPUTE FLOW</h2>
+            <div class="slide-columns">
+                <div class="text-column">
+                    <div class="card neon">
+                        <div class="card-label">1. Transaction Ledger</div>
+                        <p><strong>Chronological Hierarchy:</strong> Rapid timeline grouping ("Today", "Yesterday").</p>
+                        <p><strong>Color-Coded Flow:</strong> Intuitive metrics (Red for deductions, Green for
+                            additions).</p>
+                    </div>
+                    <div class="card neon">
+                        <div class="card-label">2. Swipe-to-Action Gesture</div>
+                        <p><strong>Hidden UI Pattern:</strong> Fast "swipe-to-reveal" gesture exposes the secondary
+                            "Dispute" button without clutter.</p>
+                    </div>
+                    <div class="card neon">
+                        <div class="card-label">3. Dispute Submission Form</div>
+                        <p><strong>Frictionless Inputs:</strong> Radio buttons replace typing to prevent errors.</p>
+                        <p><strong>Evidence Upload:</strong> Dedicated modules for appending visual proof instantly.</p>
+                    </div>
+                </div>
+                <div class="image-column">
+                    <div class="image-column-main">
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_35.jpg" alt="Transaction Ledger UI"
+                                style="width: 100%; padding: 0;">
+                            <div class="card-label">Transaction Ledger</div>
+                        </div>
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_36.jpg" alt="Swipe to Reveal UI Gesture"
+                                style="width: 100%; padding: 0;">
+                            <div class="card-label">Swipe-to-Action UI</div>
+                        </div>
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_37.jpg" alt="Dispute Form UI"
+                                style="width: 100%; padding: 0;">
+                            <div class="card-label">Dispute Form</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 31 -->
+        <div class="slide slide-31 comparison-slide">
+            <div class="section-title">CYBERSECURITY & BACKEND</div>
+            <h2>DISPUTE MANAGEMENT</h2>
+            <div class="cards-container">
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 1</div>
+                    <h3 style="color: #ffffff;">FORENSIC<br>TRACKING</h3>
+                    <p>Transactions secure metadata (IP, device, location) ke sath log hoti hain for investigation.</p>
+                </div>
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 2</div>
+                    <h3 style="color: #ffffff;">CHARGEBACK<br>AUTOMATION</h3>
+                    <p>Dispute reasons standardized codes ke sath map hote hain for fast processing.</p>
+                </div>
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 3</div>
+                    <h3>SECURE<br>EVIDENCE HANDLING</h3>
+                    <p>Uploaded files isolated storage mein scan hoti hain to prevent malware/fraud.</p>
+                </div>
+                <div class="card neon" style="flex: 0 1 calc(50% - 20px); max-width: calc(50% - 20px);">
+                    <div class="card-label">SECURITY LAYER 4</div>
+                    <h3 style="color: #ffffff;">AUTO SECURITY<br>RESPONSE</h3>
+                    <p>Unauthorized activity detect hote hi system accounts/cards ko instantly secure kar deta hai.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 32 -->
+        <div class="slide slide-32 comparison-slide">
+            <div class="section-title">GUI ANALYSIS</div>
+            <h2>DISPUTE TRACKING FLOW</h2>
+            <div class="slide-columns">
+                <div class="text-column">
+                    <div class="card neon">
+                        <div class="card-label">1. Dispute Confirmation (Success State)</div>
+                        <p><strong>Visual Reassurance:</strong> Employs engaging 3D illustrations and clear success
+                            messaging to confirm application receipt.</p>
+                        <p><strong>Tracking Architecture:</strong> Prominently displays a unique Reference ID alongside
+                            transaction metadata for easy follow-ups.</p>
+                        <p><strong>Proactive Expectation Management:</strong> Explicitly defines the resolution
+                            timeframe (e.g., 10 days) to mitigate user anxiety and significantly reduce customer support
+                            volume.</p>
+                        <p><strong>Clear Next Steps:</strong> Offers distinct Primary ("View All") and Secondary
+                            ("Done") CTAs for seamless onward navigation.</p>
+                    </div>
+                    <div class="card neon">
+                        <div class="card-label">2. My Disputes Dashboard</div>
+                        <p><strong>Categorized Navigation:</strong> Utilizes a dynamic tabbed interface (All, Active,
+                            Completed) allowing users to efficiently filter their grievance history.</p>
+                        <p><strong>Structured List Layout:</strong> Organizes individual disputes into scannable cards
+                            containing critical metadata (Date, Amount, ID).</p>
+                        <p><strong>Visual Status Badges:</strong> Integrates clear status tags (e.g., Pending, Resolved)
+                            to provide users with real-time progress updates at a single glance.</p>
+                    </div>
+                </div>
+                <div class="image-column">
+                    <div class="image-column-main">
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_38.jpg" alt="Dispute Confirmation UI"
+                                style="width: 100%; padding: 0;">
+                            <div class="card-label">Dispute Confirmation</div>
+                        </div>
+                        <div class="card neon">
+                            <img src="./Images/Bank_App_UI_39.jpg" alt="Disputes Dashboard UI"
+                                style="width: 100%; padding: 0;">
+                            <div class="card-label">My Disputes Dashboard</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 33 -->
+        <div class="slide slide-33 comparison-slide">
+            <div class="section-title">CYBERSECURITY & BACKEND</div>
+            <h2>DISPUTES ARCHITECTURE</h2>
+            <div class="cards-container">
+                <div class="card neon" style="flex: 1;">
+                    <div class="card-label">SECURITY LAYER 1</div>
+                    <h3 style="color: #ffffff;">UNIQUE DATABASE<br>KEYS (DSP-ID)</h3>
+                    <p>Links transaction hashes to evidence, automatically blocking duplicate dispute fraud.</p>
+                </div>
+                <div class="card neon" style="flex: 1;">
+                    <div class="card-label">SECURITY LAYER 2</div>
+                    <h3 style="color: #ffffff;">SLA COMPLIANCE<br>ENGINE</h3>
+                    <p>Enforces regulatory deadlines (e.g., Visa/Mastercard rules) and triggers automated staff
+                        escalations.</p>
+                </div>
+                <div class="card neon" style="flex: 1;">
+                    <div class="card-label">SECURITY LAYER 3</div>
+                    <h3>IMMUTABLE<br>AUDIT LOGGING</h3>
+                    <p>Maintains a permanent, cryptographically secure record of all actions to guarantee legal
+                        non-repudiation.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Outro Slide -->
+        <div class="slide slide-34 outro-slide"
+            style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; position: relative; background: radial-gradient(circle at 10% 20%, rgba(0, 217, 255, 0.08) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(243, 156, 18, 0.08) 0%, transparent 40%);">
+
+            <h1
+                style="font-size: 130px; font-weight: 900; letter-spacing: 4px; margin: 0; background: linear-gradient(90deg, #00d9ff 0%, #7b68ee 50%, #f39c12 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase;">
+                THANK YOU
+            </h1>
+
+            <div
+                style="width: 80px; height: 3px; background: linear-gradient(90deg, #00d9ff, #f39c12); margin: 30px auto 30px; border-radius: 2px;">
+            </div>
+
+            <div
+                style="color: #888888; font-size: 18px; letter-spacing: 12px; font-weight: 400; font-family: 'Inter', sans-serif;">
+                ANY QUESTIONS?
             </div>
         </div>
     </div>
